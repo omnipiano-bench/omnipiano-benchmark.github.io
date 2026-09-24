@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260924c" />
+    <link rel="stylesheet" href="styles.css?v=20260924d" />
   </head>
   <body>
     <nav class="topnav" aria-label="Page sections">
@@ -76,7 +76,7 @@
       <!-- ============ ABSTRACT ============ -->
       <section class="wrap narrow section" id="abstract" aria-labelledby="abstract-title">
         <figure class="abstract-media">
-          <video src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" autoplay muted loop playsinline controls preload="metadata"></video>
+          <video id="featured-video" src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" loop playsinline controls preload="auto"></video>
           <figcaption><span class="tag t-marl">Multi-Agent</span>Four agents, one Shadow Hand each, cooperatively playing a piece after 5M training steps.</figcaption>
         </figure>
         <h2 id="abstract-title" class="section-title">Abstract</h2>
@@ -124,7 +124,6 @@
             </thead>
             <tbody>
               <tr><th scope="row">Action dimension</th><td>45</td><td>1–30</td><td>2–17</td><td class="ours">23–111</td></tr>
-              <tr><th scope="row">Episode horizon</th><td>240–3710</td><td>50–1600</td><td>500–1000</td><td class="ours">240–3710</td></tr>
               <tr><th scope="row">Dexterous piano playing</th><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="ours y">✓</td></tr>
               <tr><th scope="row">Robust RL track</th><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="ours y">✓</td></tr>
               <tr><th scope="row">Safe RL track</th><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="ours y">✓</td></tr>
@@ -557,6 +556,6 @@
       <img alt="" />
     </div>
 
-    <script src="script.js?v=20260924c"></script>
+    <script src="script.js?v=20260924d"></script>
   </body>
 </html>

@@ -126,3 +126,21 @@ document.querySelectorAll('[data-copy]').forEach((btn) => btn.addEventListener('
   btn.title = 'Copied!';
   setTimeout(() => { btn.classList.remove('copied'); btn.title = 'Copy'; }, 1600);
 }));
+
+// Featured video: play with sound. Browsers block unmuted autoplay until the
+// visitor interacts, so fall back to muted playback and unmute on first input.
+const featured = document.getElementById('featured-video');
+if (featured) {
+  featured.muted = false;
+  featured.play().catch(() => {
+    featured.muted = true;
+    featured.play().catch(() => {});
+    const events = ['pointerdown', 'keydown', 'touchstart'];
+    const unmute = () => {
+      events.forEach((e) => document.removeEventListener(e, unmute, true));
+      featured.muted = false;
+      if (featured.paused) featured.play().catch(() => {});
+    };
+    events.forEach((e) => document.addEventListener(e, unmute, true));
+  });
+}
