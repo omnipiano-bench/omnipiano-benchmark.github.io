@@ -113,9 +113,9 @@
 
       <!-- ============ COMPARISON ============ -->
       <section class="wrap section" aria-labelledby="compare-title">
-        <p class="eyebrow">One core task, four tracks</p>
-        <h2 id="compare-title" class="section-title">Vary one factor at a time</h2>
-        <p class="lead">Rather than combining every factor in a single environment, OmniPiano keeps the core piano-playing task fixed and varies one aspect per track, so performance differences can be attributed to a single design choice. All tracks are exposed through consistent <b>Gymnasium</b> (single-agent) and <b>PettingZoo</b> (multi-agent) interfaces in MuJoCo, and work with Stable-Baselines3, RLlib, and TorchRL.</p>
+        <p class="eyebrow">Related benchmarks</p>
+        <h2 id="compare-title" class="section-title">How OmniPiano compares</h2>
+        <p class="lead">OmniPiano keeps the high-dimensional dexterous piano playing of RoboPianist and adds robust, safe, and multi-agent RL tracks on a single unified task setting, together with LLM-agent evaluation.</p>
         <div class="table-wrap">
           <table class="compare">
             <caption>Comparison of OmniPiano with related reinforcement-learning benchmarks.</caption>
@@ -137,8 +137,11 @@
       </section>
 
       <!-- ============ TRACKS ============ -->
-      <section id="tracks" class="tracks" aria-label="Benchmark tracks">
+      <section id="tracks" class="tracks" aria-labelledby="tracks-title">
         <div class="wrap">
+          <p class="eyebrow">One core task, four tracks</p>
+          <h2 id="tracks-title" class="section-title">Vary one factor at a time</h2>
+          <p class="lead">Rather than combining every factor in a single environment, OmniPiano keeps the core piano-playing task fixed and varies one aspect per track, so performance differences can be attributed to a single design choice. All tracks are exposed through consistent <b>Gymnasium</b> (single-agent) and <b>PettingZoo</b> (multi-agent) interfaces in MuJoCo, and work with Stable-Baselines3, RLlib, and TorchRL.</p>
           <div class="track-index">
             <a href="#track-standard" class="ti t-std"><span>01</span>Standard RL<em>72 tasks · 5 methods + 4 LLM agents</em></a>
             <a href="#track-robust" class="ti t-rob"><span>02</span>Robust RL<em>216 tasks · 5 methods</em></a>
