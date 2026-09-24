@@ -121,7 +121,8 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lightbo
 // Copy command snippets.
 document.querySelectorAll('[data-copy]').forEach((btn) => btn.addEventListener('click', async () => {
   const text = document.querySelector(btn.dataset.copy).textContent;
-  try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied!'; }
-  catch { btn.textContent = 'Select & copy'; }
-  setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+  try { await navigator.clipboard.writeText(text); } catch { return; }
+  btn.classList.add('copied');
+  btn.title = 'Copied!';
+  setTimeout(() => { btn.classList.remove('copied'); btn.title = 'Copy'; }, 1600);
 }));

@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260924c" />
   </head>
   <body>
     <nav class="topnav" aria-label="Page sections">
@@ -46,6 +46,10 @@
         <a class="btn" href="https://omnipiano-docs.readthedocs.io/en/latest/" target="_blank" rel="noreferrer">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 21.5A2.5 2.5 0 0 1 6.5 19H20v3H6.5A2.5 2.5 0 0 1 4 21.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
           Tutorial
+        </a>
+        <a class="btn" href="#dataset">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          Dataset
         </a>
       </div>
     </header>
@@ -526,12 +530,12 @@
             <li class="dataset-step">
               <h3>Preprocess</h3>
               <p>Convert the dataset into the format OmniPiano loads. This creates a <code>pig_single_finger</code> directory.</p>
-              <div class="codeblock"><pre id="cmd-preprocess">robopianist preprocess --dataset-dir /PATH/TO/PianoFingeringDataset_v1.2</pre><button class="copy" type="button" data-copy="#cmd-preprocess">Copy</button></div>
+              <div class="codeblock"><pre id="cmd-preprocess">robopianist preprocess --dataset-dir /PATH/TO/PianoFingeringDataset_v1.2</pre><button class="copy" type="button" data-copy="#cmd-preprocess" aria-label="Copy command" title="Copy"><svg class="i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><svg class="i-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
             </li>
             <li class="dataset-step">
               <h3>Verify</h3>
-              <p>Check that preprocessing succeeded. It should print <code>PIG dataset is ready to use!</code></p>
-              <div class="codeblock"><pre id="cmd-check">robopianist --check-pig-exists</pre><button class="copy" type="button" data-copy="#cmd-check">Copy</button></div>
+              <p>Check that preprocessing succeeded. It should print &ldquo;PIG dataset is ready to use!&rdquo;</p>
+              <div class="codeblock"><pre id="cmd-check">robopianist --check-pig-exists</pre><button class="copy" type="button" data-copy="#cmd-check" aria-label="Copy command" title="Copy"><svg class="i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><svg class="i-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
             </li>
           </ol>
           <p class="dataset-note">Full instructions: RoboPianist <a href="https://github.com/google-research/robopianist/blob/main/docs/dataset.md" target="_blank" rel="noreferrer">docs/dataset.md</a>.</p>
@@ -551,6 +555,6 @@
       <img alt="" />
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260924c"></script>
   </body>
 </html>
