@@ -84,13 +84,10 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .narrow .section-title { text-align: center; }
 .lead { max-width: 820px; margin-bottom: 36px; font-size: 1.08rem; }
 .abstract { margin: 0; text-align: justify; hyphens: auto; }
-#abstract .section-title { text-align: center; margin-bottom: 36px; }
-.abstract-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 52px; align-items: center; }
-.abstract-grid .abstract { text-align: left; }
-.abstract-media { margin: 0; }
-.abstract-media video { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); background: #0d1424; box-shadow: var(--shadow); }
-.abstract-media figcaption { display: flex; align-items: center; gap: 10px; margin-top: 12px; color: var(--muted); font-size: .88rem; line-height: 1.45; }
-.abstract-media .tag { margin: 0; flex: none; }
+.abstract-media { width: min(100%, 720px); margin: 0 auto 64px; }
+.abstract-media video { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: var(--radius); border: 1px solid var(--line); background: #0d1424; box-shadow: var(--shadow); }
+.abstract-media figcaption { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin-top: 14px; color: var(--muted); font-size: .92rem; line-height: 1.5; text-align: center; }
+.abstract-media .tag { margin: 0; }
 
 /* ---------- Why piano ---------- */
 .why-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
@@ -251,8 +248,6 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .stats { grid-template-columns: repeat(3, 1fr); }
-  .abstract-grid { grid-template-columns: 1fr; gap: 28px; }
-  .abstract-media { width: min(100%, 640px); margin: 0 auto; }
   .stat:nth-child(3) { border-right: 0; }
   .stat:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
   .track-index { grid-template-columns: repeat(2, 1fr); }
@@ -276,6 +271,7 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
   .track-num { width: 52px; height: 52px; font-size: 1.3rem; border-radius: 14px; }
   .teaser .figure img { padding: 6px; }
   .abstract { text-align: left; }
+  .abstract-media { margin-bottom: 44px; }
   .songs li { grid-template-columns: 1fr 64px 30px; }
   .leaderboard-head { display: block; }
   .leaderboard-head > p { margin-top: 6px; }
