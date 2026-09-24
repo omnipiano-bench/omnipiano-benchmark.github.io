@@ -235,6 +235,19 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .video-card figcaption span:last-child { color: var(--muted); }
 .tag { justify-self: start; margin-bottom: 4px; padding: 1px 9px; border-radius: 999px; background: var(--c-soft); color: var(--c); font-size: .74rem; font-weight: 600; letter-spacing: .03em; }
 
+/* ---------- Dataset ---------- */
+.dataset-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.dataset-step { position: relative; min-width: 0; padding: 26px 26px 26px 76px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(14, 28, 54, .04); counter-increment: step; }
+.dataset-step::before { content: counter(step); position: absolute; left: 26px; top: 24px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: #eef4fd; color: var(--blue); font-weight: 700; font-size: .92rem; }
+.dataset-step h3 { margin-bottom: 6px; color: var(--ink); font-size: 1.05rem; line-height: 1.35; }
+.dataset-step p { margin: 0; color: var(--muted); font-size: .94rem; line-height: 1.6; }
+.dataset-step code, .dataset-note code { padding: 1px 6px; border-radius: 6px; background: var(--soft); color: var(--ink); font: 500 .84em var(--mono); overflow-wrap: anywhere; }
+.codeblock { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 6px 8px 6px 16px; border-radius: 10px; background: var(--ink); }
+.codeblock pre { flex: 1; min-width: 0; margin: 0; padding: 8px 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #dbe4f3; font: 400 .84rem/1.6 var(--mono); }
+.copy { flex: none; padding: 4px 10px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 8px; background: rgba(255, 255, 255, .06); color: #dbe4f3; font: 500 .78rem var(--sans); cursor: pointer; }
+.copy:hover { background: rgba(255, 255, 255, .14); }
+.dataset-note { margin: 22px 0 0; color: var(--muted); font-size: .92rem; }
+
 /* ---------- Footer ---------- */
 .footer { padding: 32px 0; color: var(--muted); font-size: .9rem; }
 .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
@@ -248,6 +261,7 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .stats { grid-template-columns: repeat(3, 1fr); }
+  .dataset-steps { grid-template-columns: minmax(0, 1fr); }
   .stat:nth-child(3) { border-right: 0; }
   .stat:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
   .track-index { grid-template-columns: repeat(2, 1fr); }
@@ -277,5 +291,7 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
   .leaderboard-head > p { margin-top: 6px; }
   .leaderboard-controls { display: grid; gap: 14px; }
   .song-filter select { width: 100%; min-width: 0; }
+  .dataset-step { padding: 22px 20px 22px 64px; }
+  .dataset-step::before { left: 18px; top: 20px; }
   .footer-inner { flex-direction: column; }
 }

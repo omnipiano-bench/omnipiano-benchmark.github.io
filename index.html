@@ -22,6 +22,7 @@
           <a href="#leaderboard">Leaderboard</a>
           <a href="#findings">Findings</a>
           <a href="#videos">Videos</a>
+          <a href="#dataset">Dataset</a>
         </div>
       </div>
     </nav>
@@ -505,6 +506,35 @@
             <div class="video-frame"><video src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" autoplay muted loop playsinline controls preload="metadata"></video></div>
             <figcaption><span class="tag t-marl">Multi-Agent</span><strong>Four agents, one hand each</strong><span>Scalability setting</span></figcaption>
           </figure>
+        </div>
+      </section>
+      <!-- ============ DATASET ============ -->
+      <section class="band" id="dataset" aria-labelledby="dataset-title">
+        <div class="wrap section">
+          <p class="eyebrow">Data</p>
+          <h2 id="dataset-title" class="section-title">MIDI Dataset</h2>
+          <p class="lead">OmniPiano uses the same MIDI data as RoboPianist: the <a href="https://beam.kisarazu.ac.jp/~saito/research/PianoFingeringDataset/" target="_blank" rel="noreferrer">Piano Fingering (PIG) dataset</a>. Due to licensing restrictions, PIG cannot be redistributed on GitHub, so download and preprocess it locally. The steps are identical to RoboPianist's.</p>
+          <ol class="dataset-steps">
+            <li class="dataset-step">
+              <h3>Download</h3>
+              <p><a href="https://beam.kisarazu.ac.jp/~saito/research/PianoFingeringDataset/register.php" target="_blank" rel="noreferrer">Register for a free account</a> on the <a href="https://beam.kisarazu.ac.jp/~saito/research/PianoFingeringDataset/" target="_blank" rel="noreferrer">PIG website</a> and download <code>PianoFingeringDataset_v1.2.zip</code>.</p>
+            </li>
+            <li class="dataset-step">
+              <h3>Extract</h3>
+              <p>Unzip the archive and keep the <code>PianoFingeringDataset_v1.2</code> folder; its path is used in the next step.</p>
+            </li>
+            <li class="dataset-step">
+              <h3>Preprocess</h3>
+              <p>Convert the dataset into the format OmniPiano loads. This creates a <code>pig_single_finger</code> directory.</p>
+              <div class="codeblock"><pre id="cmd-preprocess">robopianist preprocess --dataset-dir /PATH/TO/PianoFingeringDataset_v1.2</pre><button class="copy" type="button" data-copy="#cmd-preprocess">Copy</button></div>
+            </li>
+            <li class="dataset-step">
+              <h3>Verify</h3>
+              <p>Check that preprocessing succeeded. It should print <code>PIG dataset is ready to use!</code></p>
+              <div class="codeblock"><pre id="cmd-check">robopianist --check-pig-exists</pre><button class="copy" type="button" data-copy="#cmd-check">Copy</button></div>
+            </li>
+          </ol>
+          <p class="dataset-note">Full instructions: RoboPianist <a href="https://github.com/google-research/robopianist/blob/main/docs/dataset.md" target="_blank" rel="noreferrer">docs/dataset.md</a>.</p>
         </div>
       </section>
     </main>

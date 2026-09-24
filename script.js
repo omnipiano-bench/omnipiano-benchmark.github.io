@@ -118,3 +118,10 @@ const closeLightbox = () => { lightbox.hidden = true; document.body.style.overfl
 lightbox.addEventListener('click', closeLightbox);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
 
+// Copy command snippets.
+document.querySelectorAll('[data-copy]').forEach((btn) => btn.addEventListener('click', async () => {
+  const text = document.querySelector(btn.dataset.copy).textContent;
+  try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied!'; }
+  catch { btn.textContent = 'Select & copy'; }
+  setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+}));
