@@ -72,7 +72,7 @@
       <section class="wrap narrow section" id="abstract" aria-labelledby="abstract-title">
         <figure class="abstract-media">
           <video src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" autoplay muted loop playsinline controls preload="metadata"></video>
-          <figcaption><span class="tag t-marl">Multi-Agent</span>Four agents, one Shadow Hand each, cooperatively playing a piece.</figcaption>
+          <figcaption><span class="tag t-marl">Multi-Agent</span>Four agents, one Shadow Hand each, cooperatively playing a piece after 5M training steps.</figcaption>
         </figure>
         <h2 id="abstract-title" class="section-title">Abstract</h2>
         <p class="abstract">Dexterous robotic manipulation remains a major challenge in robotics, exemplified by piano playing, which requires coordinated control of fingers and arms and provides a demanding testbed for reinforcement learning (RL). Although RoboPianist established a benchmark for robotic piano playing, it is restricted to two hands and does not support unified evaluation. To address this gap, we introduce <b>OmniPiano</b>, a benchmark that extends RoboPianist from one to up to five Shadow Hands and supports standard, robust, safe, and multi-agent RL within a shared piano-playing task family. OmniPiano is developed for scalable and diverse piano-playing tasks with configurable perturbations, explicit safety constraints, and decentralized cooperation settings. With at least 912 task settings and 50 baseline algorithms, OmniPiano also incorporates LLM-based agents to broaden the evaluation scope and reveal new empirical insights. Particularly, to facilitate usability and extendability, OmniPiano adopts a highly modular design and provides comprehensive tasks to support RL study of task performance, robustness, safety, and cooperation in dexterous control.</p>
@@ -496,6 +496,10 @@
           <figure class="video-card" data-track="marl">
             <div class="video-frame"><video src="assets/videos/marl-two-agents-four-hands.mp4" poster="assets/videos/marl-two-agents-four-hands.jpg" aria-label="Two agents cooperating to play piano with four Shadow Hands" autoplay muted loop playsinline controls preload="metadata"></video></div>
             <figcaption><span class="tag t-marl">Multi-Agent</span><strong>Two agents, four hands</strong><span>Base cooperation setting</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="marl">
+            <div class="video-frame"><video src="assets/videos/marl-heterogeneity.mp4" poster="assets/videos/marl-heterogeneity.jpg" aria-label="Two agents with imbalanced control: one controls one Shadow Hand, the other controls three" autoplay muted loop playsinline controls preload="metadata"></video></div>
+            <figcaption><span class="tag t-marl">Multi-Agent</span><strong>One hand vs. three hands</strong><span>Heterogeneity setting: one agent controls 1 hand (22 actions), the other 3 hands (66 actions)</span></figcaption>
           </figure>
           <figure class="video-card" data-track="marl">
             <div class="video-frame"><video src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" autoplay muted loop playsinline controls preload="metadata"></video></div>
