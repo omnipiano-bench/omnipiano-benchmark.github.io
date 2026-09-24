@@ -68,18 +68,16 @@
         <div class="stat"><strong>4</strong><span>LLM-based agents</span></div>
       </section>
 
-      <!-- ============ FEATURED VIDEO ============ -->
-      <section class="wrap narrow feature-video" aria-label="Featured rollout">
-        <figure class="figure">
-          <video src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" autoplay muted loop playsinline controls preload="metadata"></video>
-          <figcaption><b>Multi-Agent RL:</b> four agents, one Shadow Hand each, cooperatively playing a piece. Unmute to hear the performance.</figcaption>
-        </figure>
-      </section>
-
       <!-- ============ ABSTRACT ============ -->
-      <section class="wrap narrow section" id="abstract" aria-labelledby="abstract-title">
+      <section class="wrap section" id="abstract" aria-labelledby="abstract-title">
         <h2 id="abstract-title" class="section-title">Abstract</h2>
-        <p class="abstract">Dexterous robotic manipulation remains a major challenge in robotics, exemplified by piano playing, which requires coordinated control of fingers and arms and provides a demanding testbed for reinforcement learning (RL). Although RoboPianist established a benchmark for robotic piano playing, it is restricted to two hands and does not support unified evaluation. To address this gap, we introduce <b>OmniPiano</b>, a benchmark that extends RoboPianist from one to up to five Shadow Hands and supports standard, robust, safe, and multi-agent RL within a shared piano-playing task family. OmniPiano is developed for scalable and diverse piano-playing tasks with configurable perturbations, explicit safety constraints, and decentralized cooperation settings. With at least 912 task settings and 50 baseline algorithms, OmniPiano also incorporates LLM-based agents to broaden the evaluation scope and reveal new empirical insights. Particularly, to facilitate usability and extendability, OmniPiano adopts a highly modular design and provides comprehensive tasks to support RL study of task performance, robustness, safety, and cooperation in dexterous control.</p>
+        <div class="abstract-grid">
+          <figure class="abstract-media">
+            <video src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" autoplay muted loop playsinline controls preload="metadata"></video>
+            <figcaption><span class="tag t-marl">Multi-Agent</span>Four agents, one Shadow Hand each, cooperatively playing a piece.</figcaption>
+          </figure>
+          <p class="abstract">Dexterous robotic manipulation remains a major challenge in robotics, exemplified by piano playing, which requires coordinated control of fingers and arms and provides a demanding testbed for reinforcement learning (RL). Although RoboPianist established a benchmark for robotic piano playing, it is restricted to two hands and does not support unified evaluation. To address this gap, we introduce <b>OmniPiano</b>, a benchmark that extends RoboPianist from one to up to five Shadow Hands and supports standard, robust, safe, and multi-agent RL within a shared piano-playing task family. OmniPiano is developed for scalable and diverse piano-playing tasks with configurable perturbations, explicit safety constraints, and decentralized cooperation settings. With at least 912 task settings and 50 baseline algorithms, OmniPiano also incorporates LLM-based agents to broaden the evaluation scope and reveal new empirical insights. Particularly, to facilitate usability and extendability, OmniPiano adopts a highly modular design and provides comprehensive tasks to support RL study of task performance, robustness, safety, and cooperation in dexterous control.</p>
+        </div>
       </section>
 
       <!-- ============ WHY PIANO ============ -->
@@ -258,8 +256,8 @@
               <figcaption><b>Figure 5:</b> F1-score comparison of PPO, SAC, DeepSeek-V4.1-Flash, and GPT-6 Astra across eight hand settings (U = unrestricted, R = restricted) on three piano pieces of increasing difficulty.</figcaption>
             </figure>
             <figure class="figure zoomable">
-              <img src="assets/res-standard-llm.jpg" alt="F1 of LLM agents over ten optimization attempts compared with RL methods over 5M steps" loading="lazy" width="2200" height="777" />
-              <figcaption><b>Figure 6:</b> F1 of LLM agents over ten keyframe-optimization iterations, and of RL methods over 5M steps, for the two-hand setting on three pieces.</figcaption>
+              <img src="assets/res-standard-reward-tokens.jpg" alt="Bar charts of average evaluation reward and mean token usage per optimization attempt for LLM agents and RL methods on three piano pieces" loading="lazy" width="2200" height="1325" />
+              <figcaption><b>Figure 5:</b> Average evaluation reward (↑: top row, higher is better) and mean token usage per optimization attempt (↓: bottom row, lower is better) for LLMs across ten keyframe-optimization iterations and RL methods over 5M training steps in the two-hand setting on three piano pieces.</figcaption>
             </figure>
             <p class="takeaway"><b>Takeaway.</b> RL methods improve F1 more steadily, while LLM-based agents show less consistent gains across attempts, but can outperform some RL baselines on certain pieces, especially with more hands. Restricting hand mobility makes learning easier.</p>
             <details class="more">
