@@ -231,12 +231,6 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .video-card figcaption span:last-child { color: var(--muted); }
 .tag { justify-self: start; margin-bottom: 4px; padding: 1px 9px; border-radius: 999px; background: var(--c-soft); color: var(--c); font-size: .74rem; font-weight: 600; letter-spacing: .03em; }
 
-/* ---------- BibTeX ---------- */
-.bibtex { position: relative; }
-.bibtex pre { margin: 0; padding: 22px 24px; overflow-x: auto; border-radius: var(--radius); background: var(--ink); color: #dbe4f3; font: 400 .88rem/1.7 var(--mono); }
-.copy { position: absolute; top: 12px; right: 12px; padding: 5px 12px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 8px; background: rgba(255, 255, 255, .06); color: #dbe4f3; font: 500 .8rem var(--sans); cursor: pointer; }
-.copy:hover { background: rgba(255, 255, 255, .14); }
-
 /* ---------- Footer ---------- */
 .footer { padding: 32px 0; color: var(--muted); font-size: .9rem; }
 .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
@@ -262,7 +256,7 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
   body { font-size: 16px; }
   .wrap, .wrap.narrow, .hero, .topnav-inner { width: calc(100% - 32px); }
   .section { padding: 60px 0; }
-  .topnav-links a:not([href="#tracks"]):not([href="#leaderboard"]):not([href="#citation"]) { display: none; }
+  .topnav-links a:not([href="#tracks"]):not([href="#leaderboard"]) { display: none; }
   .topnav-links a { padding: 6px 9px; }
   .stats { grid-template-columns: repeat(2, 1fr); margin-top: 36px; }
   .stat { border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line); }
