@@ -250,12 +250,12 @@
               <p class="leaderboard-note"><b>Evaluation budget.</b> LLM agents are evaluated over 10 keyframe-optimization attempts, while RL methods are trained for 5M environment steps. Token counts apply only to LLM methods. GPT-6 Astra and Claude Opus 5 each lack one recorded Twinkle attempt; their token averages use the nine available attempts for that song.</p>
             </section>
             <figure class="figure zoomable">
-              <img src="assets/res-standard-f1.jpg" alt="Radar charts of F1 score for PPO, SAC, DeepSeek-V4.1-Flash and GPT-6 Astra across eight hand settings on three songs" loading="lazy" width="2200" height="970" />
-              <figcaption><b>Figure 5:</b> F1-score comparison of PPO, SAC, DeepSeek-V4.1-Flash, and GPT-6 Astra across eight hand settings (U = unrestricted, R = restricted) on three piano pieces of increasing difficulty.</figcaption>
-            </figure>
-            <figure class="figure zoomable">
               <img src="assets/res-standard-reward-tokens.jpg" alt="Bar charts of average evaluation reward and mean token usage per optimization attempt for LLM agents and RL methods on three piano pieces" loading="lazy" width="2200" height="1325" />
               <figcaption><b>Figure 5:</b> Average evaluation reward (↑: top row, higher is better) and mean token usage per optimization attempt (↓: bottom row, lower is better) for LLMs across ten keyframe-optimization iterations and RL methods over 5M training steps in the two-hand setting on three piano pieces.</figcaption>
+            </figure>
+            <figure class="figure zoomable">
+              <img src="assets/res-standard-f1.jpg" alt="Radar charts of F1 score for PPO, SAC, DeepSeek-V4.1-Flash and GPT-6 Astra across eight hand settings on three songs" loading="lazy" width="2200" height="970" />
+              <figcaption><b>Figure 6:</b> F1-score comparison of PPO, SAC, DeepSeek-V4.1-Flash, and GPT-6 Astra across eight hand settings (U = unrestricted, R = restricted) on three piano pieces of increasing difficulty.</figcaption>
             </figure>
             <p class="takeaway"><b>Takeaway.</b> RL methods improve F1 more steadily, while LLM-based agents show less consistent gains across attempts, but can outperform some RL baselines on certain pieces, especially with more hands. Restricting hand mobility makes learning easier.</p>
             <details class="more">
@@ -307,15 +307,15 @@
               <summary>More results: robust RL algorithms and composed perturbations</summary>
               <figure class="figure zoomable">
                 <img src="assets/res-robust-action.jpg" alt="Cross-algorithm robustness under Gaussian action perturbations on Clair de Lune" loading="lazy" width="2200" height="868" />
-                <figcaption><b>Figure 11a:</b> Cross-algorithm robustness (PPO, SAC, A2PSAC, SCPO, ERPO) on Clair de Lune under Gaussian action perturbations.</figcaption>
+                <figcaption><b>Figure 12a:</b> Cross-algorithm robustness (PPO, SAC, A2PSAC, SCPO, ERPO) on Clair de Lune under Gaussian action perturbations.</figcaption>
               </figure>
               <figure class="figure zoomable">
                 <img src="assets/res-robust-reward.jpg" alt="Cross-algorithm robustness under Gaussian reward perturbations on Clair de Lune" loading="lazy" width="2200" height="868" />
-                <figcaption><b>Figure 11b:</b> The same comparison under Gaussian reward perturbations.</figcaption>
+                <figcaption><b>Figure 12b:</b> The same comparison under Gaussian reward perturbations.</figcaption>
               </figure>
               <figure class="figure zoomable">
                 <img src="assets/res-robust-compose.jpg" alt="Composed Gaussian perturbations on Für Elise with three hands" loading="lazy" width="2200" height="824" />
-                <figcaption><b>Figure 12:</b> Progressively composing observation, reward, action, gravity, and hand-pose perturbations on three-hand Für Elise.</figcaption>
+                <figcaption><b>Figure 13:</b> Progressively composing observation, reward, action, gravity, and hand-pose perturbations on three-hand Für Elise.</figcaption>
               </figure>
             </details>
           </div>
@@ -403,7 +403,7 @@
               <summary>More results: team return and musical F1 per task</summary>
               <figure class="figure zoomable">
                 <img src="assets/res-marl-detail.jpg" alt="Detailed MARL results: team return and musical F1 per algorithm and task" loading="lazy" width="2200" height="1458" />
-                <figcaption><b>Figure 20:</b> Detailed MARL results. The first row compares task-wise team return per algorithm; the second and third rows compare team return and musical F1 across algorithms for each task.</figcaption>
+                <figcaption><b>Figure 21:</b> Detailed MARL results. The first row compares task-wise team return per algorithm; the second and third rows compare team return and musical F1 across algorithms for each task.</figcaption>
               </figure>
             </details>
           </div>
