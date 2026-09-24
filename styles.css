@@ -70,6 +70,9 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .figure figcaption b { color: var(--ink); }
 .zoomable img { cursor: zoom-in; }
 .teaser .figure img { padding: 14px; box-shadow: var(--shadow); }
+.feature-video { margin-top: 56px; }
+.feature-video .figure { margin: 0; }
+.feature-video video { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: var(--radius); border: 1px solid var(--line); background: #0d1424; box-shadow: var(--shadow); }
 
 /* ---------- Stats ---------- */
 .stats { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 56px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
@@ -259,6 +262,7 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
   .topnav-links a:not([href="#tracks"]):not([href="#leaderboard"]) { display: none; }
   .topnav-links a { padding: 6px 9px; }
   .stats { grid-template-columns: repeat(2, 1fr); margin-top: 36px; }
+  .feature-video { margin-top: 36px; }
   .stat { border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line); }
   .stat:nth-child(2n) { border-right: 0 !important; }
   .stat:nth-last-child(-n+2) { border-bottom: 0; }
