@@ -110,6 +110,34 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .compare thead .ours { background: var(--blue); color: #fff; }
 .compare .ours.y { color: var(--blue); }
 
+/* ---------- Leaderboard ---------- */
+.leaderboard { margin: 0 0 36px; scroll-margin-top: 76px; }
+.leaderboard-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 16px; }
+.leaderboard-head .eyebrow { margin-bottom: 5px; }
+.leaderboard-head h3 { color: var(--ink); font-family: var(--serif); font-size: 1.55rem; line-height: 1.2; }
+.leaderboard-head > p { margin: 0; color: var(--muted); font-size: .88rem; white-space: nowrap; }
+.leaderboard-controls { display: flex; align-items: end; gap: 28px; margin-bottom: 14px; padding: 14px 16px; border-radius: 12px; background: var(--soft); }
+.leaderboard-controls label, .method-filters legend { color: var(--ink); font-size: .82rem; font-weight: 600; }
+.song-filter { display: grid; gap: 5px; }
+.song-filter select { min-width: 250px; padding: 8px 34px 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--text); font: 500 .9rem var(--sans); }
+.method-filters { display: flex; gap: 16px; margin: 0; padding: 0; border: 0; }
+.method-filters legend { margin-bottom: 7px; }
+.method-filters label { display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; cursor: pointer; }
+.method-filters input { width: 16px; height: 16px; accent-color: var(--blue); }
+.sort-button { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; white-space: nowrap; }
+.sort-button:hover, .sort-button.is-active { color: var(--blue); }
+.sort-button span { display: inline-block; min-width: 1em; margin-left: 3px; }
+.leaderboard-table th:nth-child(2) { text-align: left; }
+.leaderboard-table td { font-variant-numeric: tabular-nums; }
+.leaderboard-table .leader th, .leaderboard-table .leader td { background: #f5f8fd; }
+.leaderboard-table .leader td:first-child { color: var(--blue); font-weight: 700; }
+.method-tag { display: inline-block; min-width: 42px; padding: 2px 8px; border-radius: 999px; font-size: .72rem; font-weight: 700; letter-spacing: .04em; }
+.method-tag.rl { background: var(--std-soft); color: var(--std); }
+.method-tag.llm { background: var(--marl-soft); color: var(--marl); }
+.leaderboard-note { margin: 12px 4px 0; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+.leaderboard-note b { color: var(--ink); }
+.leaderboard-empty { margin: 0; padding: 24px; border: 1px solid var(--line); border-top: 0; color: var(--muted); text-align: center; }
+
 /* ---------- Tracks ---------- */
 .tracks { padding-top: 8px; }
 .track-index { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -234,7 +262,7 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
   body { font-size: 16px; }
   .wrap, .wrap.narrow, .hero, .topnav-inner { width: calc(100% - 32px); }
   .section { padding: 60px 0; }
-  .topnav-links a:not([href="#tracks"]):not([href="#videos"]):not([href="#citation"]) { display: none; }
+  .topnav-links a:not([href="#tracks"]):not([href="#leaderboard"]):not([href="#citation"]) { display: none; }
   .topnav-links a { padding: 6px 9px; }
   .stats { grid-template-columns: repeat(2, 1fr); margin-top: 36px; }
   .stat { border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line); }
@@ -246,5 +274,9 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
   .teaser .figure img { padding: 6px; }
   .abstract { text-align: left; }
   .songs li { grid-template-columns: 1fr 64px 30px; }
+  .leaderboard-head { display: block; }
+  .leaderboard-head > p { margin-top: 6px; }
+  .leaderboard-controls { display: grid; gap: 14px; }
+  .song-filter select { width: 100%; min-width: 0; }
   .footer-inner { flex-direction: column; }
 }

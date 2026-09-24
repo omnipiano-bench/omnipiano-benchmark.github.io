@@ -19,6 +19,7 @@
         <div class="topnav-links">
           <a href="#overview">Overview</a>
           <a href="#tracks">Tracks</a>
+          <a href="#leaderboard">Leaderboard</a>
           <a href="#findings">Findings</a>
           <a href="#videos">Videos</a>
           <a href="#citation">BibTeX</a>
@@ -166,6 +167,89 @@
             </div>
 
             <h3 class="results-title">Results</h3>
+            <section class="leaderboard" id="leaderboard" aria-labelledby="leaderboard-title">
+              <div class="leaderboard-head">
+                <div>
+                  <p class="eyebrow">Two-hand evaluation</p>
+                  <h3 id="leaderboard-title">RL &amp; LLM leaderboard</h3>
+                </div>
+                <p>Click a metric to sort</p>
+              </div>
+              <div class="leaderboard-controls" aria-label="Leaderboard filters">
+                <label class="song-filter">Song
+                  <select id="leaderboard-song">
+                    <option value="all">All songs</option>
+                    <option value="twinkle">Twinkle Twinkle</option>
+                    <option value="kiev">Pictures at an Exhibition: Great Kiev</option>
+                    <option value="winter">Winter Wind</option>
+                  </select>
+                </label>
+                <fieldset class="method-filters">
+                  <legend>Include</legend>
+                  <label><input type="checkbox" value="rl" checked /> RL</label>
+                  <label><input type="checkbox" value="llm" checked /> LLM</label>
+                </fieldset>
+              </div>
+              <div class="table-wrap">
+                <table class="compare leaderboard-table">
+                  <caption>The all-songs view uses a macro average across Twinkle Twinkle, Pictures at an Exhibition: Great Kiev, and Winter Wind; single-song views show that song directly. LLM F1 is the best observed value, reward metrics are from the final recorded iteration, and tokens include prompt and completion tokens.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Rank</th>
+                      <th scope="col">Method</th>
+                      <th scope="col"><button class="sort-button" type="button" data-sort="type">Type <span aria-hidden="true">↕</span></button></th>
+                      <th scope="col" aria-sort="descending"><button class="sort-button is-active" type="button" data-sort="f1">Avg. F1 <span aria-hidden="true">↓</span></button></th>
+                      <th scope="col"><button class="sort-button" type="button" data-sort="reward">Final eval reward <span aria-hidden="true">↕</span></button></th>
+                      <th scope="col"><button class="sort-button" type="button" data-sort="avg-reward">Avg. eval reward <span aria-hidden="true">↕</span></button></th>
+                      <th scope="col"><button class="sort-button" type="button" data-sort="tokens">Avg. tokens / iteration <span aria-hidden="true">↕</span></button></th>
+                    </tr>
+                  </thead>
+                  <tbody id="leaderboard-body">
+                    <tr data-song="all" data-type="rl"><td class="rank">1</td><th scope="row">CrossQ</th><td><span class="method-tag rl">RL</span></td><td><strong>0.652</strong></td><td>1,225.4</td><td>1,172.3</td><td>—</td></tr>
+                    <tr data-song="all" data-type="rl"><td class="rank">2</td><th scope="row">TQC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.626</strong></td><td>1,205.3</td><td>1,127.7</td><td>—</td></tr>
+                    <tr data-song="all" data-type="rl"><td class="rank">3</td><th scope="row">SAC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.615</strong></td><td>1,190.2</td><td>1,136.5</td><td>—</td></tr>
+                    <tr data-song="all" data-type="llm"><td class="rank">4</td><th scope="row">GPT-6 Astra</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.596</strong></td><td>1,073.6</td><td>1,009.1</td><td>582.3K</td></tr>
+                    <tr data-song="all" data-type="rl"><td class="rank">5</td><th scope="row">PPO</th><td><span class="method-tag rl">RL</span></td><td><strong>0.565</strong></td><td>1,197.3</td><td>1,121.2</td><td>—</td></tr>
+                    <tr data-song="all" data-type="llm"><td class="rank">6</td><th scope="row">Claude Opus 5</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.452</strong></td><td>938.3</td><td>899.1</td><td><strong>362.8K</strong></td></tr>
+                    <tr data-song="all" data-type="llm"><td class="rank">7</td><th scope="row">Gemini 3.8 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.168</strong></td><td>840.5</td><td>794.3</td><td>416.8K</td></tr>
+                    <tr data-song="all" data-type="llm"><td class="rank">8</td><th scope="row">DeepSeek V4.1 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.155</strong></td><td>768.7</td><td>831.8</td><td>938.2K</td></tr>
+                    <tr data-song="all" data-type="rl"><td class="rank">9</td><th scope="row">TD3</th><td><span class="method-tag rl">RL</span></td><td><strong>0.000</strong></td><td>766.5</td><td>756.2</td><td>—</td></tr>
+
+                    <tr data-song="twinkle" data-type="rl" hidden><td class="rank"></td><th scope="row">TQC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.967</strong></td><td>552.2</td><td>543.9</td><td>—</td></tr>
+                    <tr data-song="twinkle" data-type="rl" hidden><td class="rank"></td><th scope="row">PPO</th><td><span class="method-tag rl">RL</span></td><td><strong>0.957</strong></td><td>551.8</td><td>497.8</td><td>—</td></tr>
+                    <tr data-song="twinkle" data-type="rl" hidden><td class="rank"></td><th scope="row">SAC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.944</strong></td><td>551.9</td><td>544.6</td><td>—</td></tr>
+                    <tr data-song="twinkle" data-type="llm" hidden><td class="rank"></td><th scope="row">GPT-6 Astra</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.925</strong></td><td>548.3</td><td>509.8</td><td>344.5K</td></tr>
+                    <tr data-song="twinkle" data-type="llm" hidden><td class="rank"></td><th scope="row">Claude Opus 5</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.913</strong></td><td>529.3</td><td>469.3</td><td>313.2K</td></tr>
+                    <tr data-song="twinkle" data-type="rl" hidden><td class="rank"></td><th scope="row">CrossQ</th><td><span class="method-tag rl">RL</span></td><td><strong>0.857</strong></td><td>535.1</td><td>547.6</td><td>—</td></tr>
+                    <tr data-song="twinkle" data-type="llm" hidden><td class="rank"></td><th scope="row">DeepSeek V4.1 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.261</strong></td><td>406.7</td><td>395.1</td><td>962.2K</td></tr>
+                    <tr data-song="twinkle" data-type="llm" hidden><td class="rank"></td><th scope="row">Gemini 3.8 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.219</strong></td><td>380.7</td><td>401.0</td><td>637.8K</td></tr>
+                    <tr data-song="twinkle" data-type="rl" hidden><td class="rank"></td><th scope="row">TD3</th><td><span class="method-tag rl">RL</span></td><td><strong>0.000</strong></td><td>242.6</td><td>242.6</td><td>—</td></tr>
+
+                    <tr data-song="kiev" data-type="rl" hidden><td class="rank"></td><th scope="row">CrossQ</th><td><span class="method-tag rl">RL</span></td><td><strong>0.604</strong></td><td>2,203.0</td><td>2,092.8</td><td>—</td></tr>
+                    <tr data-song="kiev" data-type="llm" hidden><td class="rank"></td><th scope="row">GPT-6 Astra</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.498</strong></td><td>1,876.4</td><td>1,747.2</td><td>627.8K</td></tr>
+                    <tr data-song="kiev" data-type="rl" hidden><td class="rank"></td><th scope="row">SAC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.469</strong></td><td>2,095.2</td><td>1,983.9</td><td>—</td></tr>
+                    <tr data-song="kiev" data-type="rl" hidden><td class="rank"></td><th scope="row">TQC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.448</strong></td><td>2,124.1</td><td>1,952.2</td><td>—</td></tr>
+                    <tr data-song="kiev" data-type="rl" hidden><td class="rank"></td><th scope="row">PPO</th><td><span class="method-tag rl">RL</span></td><td><strong>0.417</strong></td><td>2,122.4</td><td>2,002.5</td><td>—</td></tr>
+                    <tr data-song="kiev" data-type="llm" hidden><td class="rank"></td><th scope="row">Claude Opus 5</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.362</strong></td><td>1,609.3</td><td>1,559.9</td><td>293.6K</td></tr>
+                    <tr data-song="kiev" data-type="llm" hidden><td class="rank"></td><th scope="row">Gemini 3.8 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.200</strong></td><td>1,543.6</td><td>1,361.0</td><td>218.9K</td></tr>
+                    <tr data-song="kiev" data-type="llm" hidden><td class="rank"></td><th scope="row">DeepSeek V4.1 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.082</strong></td><td>1,275.4</td><td>1,483.7</td><td>585.3K</td></tr>
+                    <tr data-song="kiev" data-type="rl" hidden><td class="rank"></td><th scope="row">TD3</th><td><span class="method-tag rl">RL</span></td><td><strong>0.001</strong></td><td>1,435.9</td><td>1,419.3</td><td>—</td></tr>
+
+                    <tr data-song="winter" data-type="rl" hidden><td class="rank"></td><th scope="row">CrossQ</th><td><span class="method-tag rl">RL</span></td><td><strong>0.494</strong></td><td>938.2</td><td>876.6</td><td>—</td></tr>
+                    <tr data-song="winter" data-type="rl" hidden><td class="rank"></td><th scope="row">TQC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.463</strong></td><td>939.7</td><td>886.9</td><td>—</td></tr>
+                    <tr data-song="winter" data-type="rl" hidden><td class="rank"></td><th scope="row">SAC</th><td><span class="method-tag rl">RL</span></td><td><strong>0.431</strong></td><td>923.4</td><td>881.0</td><td>—</td></tr>
+                    <tr data-song="winter" data-type="llm" hidden><td class="rank"></td><th scope="row">GPT-6 Astra</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.364</strong></td><td>796.2</td><td>770.4</td><td>750.9K</td></tr>
+                    <tr data-song="winter" data-type="rl" hidden><td class="rank"></td><th scope="row">PPO</th><td><span class="method-tag rl">RL</span></td><td><strong>0.322</strong></td><td>917.8</td><td>863.2</td><td>—</td></tr>
+                    <tr data-song="winter" data-type="llm" hidden><td class="rank"></td><th scope="row">DeepSeek V4.1 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.123</strong></td><td>623.8</td><td>616.7</td><td>1,267.1K</td></tr>
+                    <tr data-song="winter" data-type="llm" hidden><td class="rank"></td><th scope="row">Gemini 3.8 Flash</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.084</strong></td><td>597.4</td><td>620.8</td><td>393.8K</td></tr>
+                    <tr data-song="winter" data-type="llm" hidden><td class="rank"></td><th scope="row">Claude Opus 5</th><td><span class="method-tag llm">LLM</span></td><td><strong>0.081</strong></td><td>676.3</td><td>668.1</td><td>476.6K</td></tr>
+                    <tr data-song="winter" data-type="rl" hidden><td class="rank"></td><th scope="row">TD3</th><td><span class="method-tag rl">RL</span></td><td><strong>0.000</strong></td><td>620.9</td><td>606.8</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="leaderboard-empty" id="leaderboard-empty" hidden>Select RL, LLM, or both to show results.</p>
+              <p class="leaderboard-note"><b>Evaluation budget.</b> LLM agents are evaluated over 10 keyframe-optimization attempts, while RL methods are trained for 5M environment steps. Token counts apply only to LLM methods. GPT-6 Astra and Claude Opus 5 each lack one recorded Twinkle attempt; their token averages use the nine available attempts for that song.</p>
+            </section>
             <figure class="figure zoomable">
               <img src="assets/res-standard-f1.jpg" alt="Radar charts of F1 score for PPO, SAC, DeepSeek-V4.1-Flash and GPT-6 Astra across eight hand settings on three songs" loading="lazy" width="2200" height="970" />
               <figcaption><b>Figure 5:</b> F1-score comparison of PPO, SAC, DeepSeek-V4.1-Flash, and GPT-6 Astra across eight hand settings (U = unrestricted, R = restricted) on three piano pieces of increasing difficulty.</figcaption>

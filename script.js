@@ -49,6 +49,62 @@ chips.forEach((chip) => chip.addEventListener('click', () => {
   cards.forEach((card) => { card.hidden = f !== 'all' && card.dataset.track !== f; });
 }));
 
+// Static leaderboard filters.
+const leaderboardSong = document.getElementById('leaderboard-song');
+const leaderboardRows = [...document.querySelectorAll('#leaderboard-body tr')];
+const leaderboardTypes = [...document.querySelectorAll('.method-filters input')];
+const leaderboardEmpty = document.getElementById('leaderboard-empty');
+const leaderboardSortButtons = [...document.querySelectorAll('.sort-button')];
+if (leaderboardSong) {
+  let sortKey = 'f1';
+  let sortDirection = 'desc';
+  const sortValue = (row, key) => {
+    if (key === 'type') return row.dataset.type;
+    const cell = row.querySelectorAll('td')[{ f1: 2, reward: 3, 'avg-reward': 4, tokens: 5 }[key]].textContent.trim();
+    if (cell === '—') return null;
+    const value = Number(cell.replaceAll(',', '').replace('K', ''));
+    return cell.endsWith('K') ? value * 1000 : value;
+  };
+  const filterLeaderboard = () => {
+    const types = new Set(leaderboardTypes.filter((input) => input.checked).map((input) => input.value));
+    let rank = 0;
+    leaderboardRows.forEach((row) => {
+      const visible = row.dataset.song === leaderboardSong.value && types.has(row.dataset.type);
+      row.hidden = !visible;
+      row.classList.toggle('leader', visible && rank === 0);
+      if (visible) row.querySelector('.rank').textContent = ++rank;
+    });
+    leaderboardEmpty.hidden = rank > 0;
+  };
+  const sortLeaderboard = () => {
+    leaderboardRows.sort((a, b) => {
+      const aValue = sortValue(a, sortKey);
+      const bValue = sortValue(b, sortKey);
+      if (aValue === null) return bValue === null ? 0 : 1;
+      if (bValue === null) return -1;
+      const comparison = typeof aValue === 'string' ? aValue.localeCompare(bValue) : aValue - bValue;
+      return sortDirection === 'asc' ? comparison : -comparison;
+    });
+    leaderboardRows.forEach((row) => row.parentNode.appendChild(row));
+    leaderboardSortButtons.forEach((button) => {
+      const active = button.dataset.sort === sortKey;
+      button.classList.toggle('is-active', active);
+      button.parentElement.setAttribute('aria-sort', active ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none');
+      button.querySelector('span').textContent = active ? (sortDirection === 'asc' ? '↑' : '↓') : '↕';
+    });
+    filterLeaderboard();
+  };
+  leaderboardSong.addEventListener('change', filterLeaderboard);
+  leaderboardTypes.forEach((input) => input.addEventListener('change', filterLeaderboard));
+  leaderboardSortButtons.forEach((button) => button.addEventListener('click', () => {
+    const nextKey = button.dataset.sort;
+    sortDirection = nextKey === sortKey ? (sortDirection === 'asc' ? 'desc' : 'asc') : (nextKey === 'type' ? 'asc' : 'desc');
+    sortKey = nextKey;
+    sortLeaderboard();
+  }));
+  sortLeaderboard();
+}
+
 // Figure lightbox.
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
