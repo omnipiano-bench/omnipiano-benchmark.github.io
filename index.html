@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="OmniPiano: a unified benchmark for standard, robust, safe, and multi-agent reinforcement learning through dexterous multi-hand piano playing." />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>OmniPiano: Diverse Dexterous Piano-Playing Challenges for Standard, Robust, Safe, and Multi-Agent RL</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1c36'/%3E%3Cpath d='M14 13h36v38H14z' fill='white'/%3E%3Cpath d='M21 13h6v22h-6zm16 0h6v22h-6z' fill='%233474cc'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="topnav" aria-label="Page sections">
+      <div class="topnav-inner">
+        <a class="wordmark" href="#top">Omni<span>Piano</span></a>
+        <div class="topnav-links">
+          <a href="#overview">Overview</a>
+          <a href="#tracks">Tracks</a>
+          <a href="#findings">Findings</a>
+          <a href="#videos">Videos</a>
+          <a href="#citation">BibTeX</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="top">
+      <img class="project-logo" src="assets/omnipiano-logo-v4.png" alt="OmniPiano logo" width="808" height="302" fetchpriority="high" />
+      <h1>OmniPiano: Diverse Dexterous Piano-Playing Challenges for
+        <span class="c-std">Standard</span>, <span class="c-rob">Robust</span>, <span class="c-safe">Safe</span>, and <span class="c-marl">Multi&#8209;Agent</span> RL</h1>
+      <p class="authors">Anonymous Authors</p>
+      <p class="affiliation">Paper under double-blind review</p>
+      <div class="hero-links">
+        <span class="btn btn-muted" title="The paper link will be added after review">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          Paper <small>coming soon</small>
+        </span>
+        <a class="btn" href="https://github.com/SAIL-Research-Lab/omnipiano" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          Code
+        </a>
+        <a class="btn" href="https://omnipiano-docs.readthedocs.io/en/latest/" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 21.5A2.5 2.5 0 0 1 6.5 19H20v3H6.5A2.5 2.5 0 0 1 4 21.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          Tutorial
+        </a>
+        <a class="btn" href="#citation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v6H5v-2a4 4 0 0 1 2-4Zm8 0h4v6h-6v-2a4 4 0 0 1 2-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          BibTeX
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ TEASER ============ -->
+      <section class="wrap teaser" aria-label="Benchmark overview figure">
+        <figure class="figure zoomable">
+          <img src="assets/framework-v3.jpg" alt="OmniPiano overview: four tracks — Standard, Robust, Safe, and Multi-Agent RL — built around a shared piano-playing core" width="2200" height="1398" />
+          <figcaption><b>Figure 1:</b> Overview of OmniPiano Benchmark. A unified benchmark for learning dexterous multi-hand piano playing.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ STATS ============ -->
+      <section class="wrap stats" aria-label="Benchmark at a glance">
+        <div class="stat"><strong>1–5</strong><span>Shadow Hands</span></div>
+        <div class="stat"><strong>111</strong><span>max action dims</span></div>
+        <div class="stat"><strong>150</strong><span>songs</span></div>
+        <div class="stat"><strong>912</strong><span>task settings</span></div>
+        <div class="stat"><strong>50</strong><span>baseline algorithms</span></div>
+        <div class="stat"><strong>4</strong><span>LLM-based agents</span></div>
+      </section>
+
+      <!-- ============ ABSTRACT ============ -->
+      <section class="wrap narrow section" id="abstract" aria-labelledby="abstract-title">
+        <h2 id="abstract-title" class="section-title">Abstract</h2>
+        <p class="abstract">Dexterous robotic manipulation remains a major challenge in robotics, exemplified by piano playing, which requires coordinated control of fingers and arms and provides a demanding testbed for reinforcement learning (RL). Although RoboPianist established a benchmark for robotic piano playing, it is restricted to two hands and does not support unified evaluation. To address this gap, we introduce <b>OmniPiano</b>, a benchmark that extends RoboPianist from one to up to five Shadow Hands and supports standard, robust, safe, and multi-agent RL within a shared piano-playing task family. OmniPiano is developed for scalable and diverse piano-playing tasks with configurable perturbations, explicit safety constraints, and decentralized cooperation settings. With at least 912 task settings and 50 baseline algorithms, OmniPiano also incorporates LLM-based agents to broaden the evaluation scope and reveal new empirical insights. Particularly, to facilitate usability and extendability, OmniPiano adopts a highly modular design and provides comprehensive tasks to support RL study of task performance, robustness, safety, and cooperation in dexterous control.</p>
+      </section>
+
+      <!-- ============ WHY PIANO ============ -->
+      <section class="band" id="overview" aria-labelledby="why-title">
+        <div class="wrap section">
+          <p class="eyebrow">Why piano playing?</p>
+          <h2 id="why-title" class="section-title">A precise, measurable testbed for dexterous control</h2>
+          <p class="lead">A MIDI score specifies exactly which keys to press, hold, and release, and when. Comparing intended and actual key activations gives a concrete, note-level measure of how well an RL policy controls a high-dimensional, contact-rich body.</p>
+          <div class="why-grid">
+            <figure class="why-figure zoomable">
+              <img src="assets/feature-hands.jpg" alt="Two simulated Shadow Hands playing a piano keyboard" loading="lazy" width="877" height="549" />
+            </figure>
+            <ol class="why-list">
+              <li>
+                <h3>High-dimensional continuous control</h3>
+                <p>Anthropomorphic Shadow Hands with position control on an 88-key piano: 44 DoF for two hands, scaling to <b>111 action dimensions</b> with five hands.</p>
+              </li>
+              <li>
+                <h3>Spatial &amp; temporal coordination</h3>
+                <p>Fingers on every hand must hit different notes at the right time, without colliding with each other in a shared workspace.</p>
+              </li>
+              <li>
+                <h3>Diverse task settings</h3>
+                <p>150 songs × 8 hand settings, with restricted or unrestricted hand mobility, plus perturbation, safety, and multi-agent variants of the same task.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ COMPARISON ============ -->
+      <section class="wrap section" aria-labelledby="compare-title">
+        <p class="eyebrow">One core task, four tracks</p>
+        <h2 id="compare-title" class="section-title">Vary one factor at a time</h2>
+        <p class="lead">Rather than combining every factor in a single environment, OmniPiano keeps the core piano-playing task fixed and varies one aspect per track, so performance differences can be attributed to a single design choice. All tracks are exposed through consistent <b>Gymnasium</b> (single-agent) and <b>PettingZoo</b> (multi-agent) interfaces in MuJoCo, and work with Stable-Baselines3, RLlib, and TorchRL.</p>
+        <div class="table-wrap">
+          <table class="compare">
+            <caption>Comparison of OmniPiano with related reinforcement-learning benchmarks.</caption>
+            <thead>
+              <tr><th scope="col">Feature</th><th scope="col">RoboPianist</th><th scope="col">Robust-Gym.</th><th scope="col">Safety-Gym.</th><th scope="col" class="ours">OmniPiano</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Action dimension</th><td>45</td><td>1–30</td><td>2–17</td><td class="ours">23–111</td></tr>
+              <tr><th scope="row">Episode horizon</th><td>240–3710</td><td>50–1600</td><td>500–1000</td><td class="ours">240–3710</td></tr>
+              <tr><th scope="row">Dexterous piano playing</th><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="ours y">✓</td></tr>
+              <tr><th scope="row">Robust RL track</th><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="ours y">✓</td></tr>
+              <tr><th scope="row">Safe RL track</th><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="ours y">✓</td></tr>
+              <tr><th scope="row">Multi-agent RL track</th><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="ours y">✓</td></tr>
+              <tr><th scope="row">Unified task setting</th><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="ours y">✓</td></tr>
+              <tr><th scope="row">LLM-agent evaluation</th><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="ours y">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ TRACKS ============ -->
+      <section id="tracks" class="tracks" aria-label="Benchmark tracks">
+        <div class="wrap">
+          <div class="track-index">
+            <a href="#track-standard" class="ti t-std"><span>01</span>Standard RL<em>72 tasks · 5 methods + 4 LLM agents</em></a>
+            <a href="#track-robust" class="ti t-rob"><span>02</span>Robust RL<em>216 tasks · 5 methods</em></a>
+            <a href="#track-safe" class="ti t-safe"><span>03</span>Safe RL<em>480 tasks · 32 methods</em></a>
+            <a href="#track-marl" class="ti t-marl"><span>04</span>Multi-Agent RL<em>144 tasks · 8 methods</em></a>
+          </div>
+        </div>
+
+        <!-- ---- 01 Standard ---- -->
+        <article class="track t-std" id="track-standard" aria-labelledby="std-title">
+          <div class="wrap section">
+            <header class="track-head">
+              <span class="track-num">01</span>
+              <div>
+                <h2 id="std-title">Standard RL</h2>
+                <p>How well can a policy play, as repertoire and the number of hands grow?</p>
+              </div>
+            </header>
+            <div class="track-body">
+              <div class="prose">
+                <p><b>Hand settings.</b> Eight hand settings from one to five Shadow Hands. <em>Unrestricted</em> hands move freely across the keyboard; <em>restricted</em> hands are each confined to a fixed region, which keeps exploration and credit assignment tractable as the number of hands grows.</p>
+                <p><b>Reward.</b> Following RoboPianist, <span class="math">r<sub>t</sub> = r<sub>t</sub><sup>key</sup> + r<sub>t</sub><sup>match</sup> − λ<sub>energy</sub> r<sub>t</sub><sup>energy</sup></span>, rewarding correct key presses, fingertip-to-key proximity, and low actuation. Two variants: a <em>fingering-annotated</em> reward, and an <em>optimal-transport</em> reward that needs no fingering annotations and so supports arbitrary MIDI files and hand configurations.</p>
+                <p><b>Baselines.</b> PPO, SAC, CrossQ, TD3, TQC, and four LLM-based agents that optimize keyframes over ten iterations.</p>
+              </div>
+              <aside class="song-card" aria-label="Song difficulty">
+                <h3>Song difficulty</h3>
+                <p class="song-note">F1 score, with note density in notes per second (NPS)</p>
+                <ul class="songs" id="song-list"></ul>
+              </aside>
+            </div>
+
+            <h3 class="results-title">Results</h3>
+            <figure class="figure zoomable">
+              <img src="assets/res-standard-f1.jpg" alt="Radar charts of F1 score for PPO, SAC, DeepSeek-V4.1-Flash and GPT-6 Astra across eight hand settings on three songs" loading="lazy" width="2200" height="970" />
+              <figcaption><b>Figure 5:</b> F1-score comparison of PPO, SAC, DeepSeek-V4.1-Flash, and GPT-6 Astra across eight hand settings (U = unrestricted, R = restricted) on three piano pieces of increasing difficulty.</figcaption>
+            </figure>
+            <figure class="figure zoomable">
+              <img src="assets/res-standard-llm.jpg" alt="F1 of LLM agents over ten optimization attempts compared with RL methods over 5M steps" loading="lazy" width="2200" height="777" />
+              <figcaption><b>Figure 6:</b> F1 of LLM agents over ten keyframe-optimization iterations, and of RL methods over 5M steps, for the two-hand setting on three pieces.</figcaption>
+            </figure>
+            <p class="takeaway"><b>Takeaway.</b> RL methods improve F1 more steadily, while LLM-based agents show less consistent gains across attempts, but can outperform some RL baselines on certain pieces, especially with more hands. Restricting hand mobility makes learning easier.</p>
+            <details class="more">
+              <summary>More results: restricted vs. unrestricted hands</summary>
+              <figure class="figure zoomable">
+                <img src="assets/res-standard-restrict.jpg" alt="Evaluation reward for PPO and SAC under restricted and unrestricted configurations" loading="lazy" width="2200" height="655" />
+                <figcaption><b>Figure 10:</b> Periodic evaluation reward during training for PPO and SAC under restricted and unrestricted configurations across the three songs.</figcaption>
+              </figure>
+            </details>
+          </div>
+        </article>
+
+        <!-- ---- 02 Robust ---- -->
+        <article class="track t-rob" id="track-robust" aria-labelledby="rob-title">
+          <div class="wrap section">
+            <header class="track-head">
+              <span class="track-num">02</span>
+              <div>
+                <h2 id="rob-title">Robust RL</h2>
+                <p>Does the playing hold up when signals and physics are perturbed?</p>
+              </div>
+            </header>
+            <figure class="figure zoomable">
+              <img src="assets/design-robust.jpg" alt="Robust RL design: action, environment, reward and observation disruptors acting on the agent–environment loop" loading="lazy" width="1924" height="849" />
+              <figcaption><b>Figure 2:</b> Robustness perturbations are introduced through four independent disruptors acting on the agent–environment interaction loop.</figcaption>
+            </figure>
+            <div class="cards three">
+              <div class="card">
+                <h3>Signal perturbations</h3>
+                <p>Operators <span class="math">D<sub>o</sub>, D<sub>a</sub>, D<sub>r</sub></span> corrupt observations, actions (actuation uncertainty), and rewards during interaction.</p>
+              </div>
+              <div class="card">
+                <h3>Environment perturbations</h3>
+                <p><span class="math">D<sub>e</sub></span> changes gravity, fingertip–key contact friction, and the initial pose of each hand, per episode or per step.</p>
+              </div>
+              <div class="card">
+                <h3>Composable</h3>
+                <p>Gaussian, uniform, or shift noise at low / medium / high levels on any channel, combined freely to test isolated and compound effects.</p>
+              </div>
+            </div>
+
+            <h3 class="results-title">Results</h3>
+            <figure class="figure zoomable">
+              <img src="assets/res-robust-ppo.jpg" alt="PPO evaluation reward under six perturbation channels and three noise families" loading="lazy" width="2200" height="1173" />
+              <figcaption><b>Figure 7:</b> Periodic evaluation reward of PPO across six robustness channels under Gaussian, uniform, and shift perturbations, with the clean environment shown as a reference.</figcaption>
+            </figure>
+            <p class="takeaway"><b>Takeaway.</b> Action and hand-position perturbations cause the largest performance drops. Action noise is more disruptive than observation or reward noise because it directly corrupts the executed commands.</p>
+            <details class="more">
+              <summary>More results: robust RL algorithms and composed perturbations</summary>
+              <figure class="figure zoomable">
+                <img src="assets/res-robust-action.jpg" alt="Cross-algorithm robustness under Gaussian action perturbations on Clair de Lune" loading="lazy" width="2200" height="868" />
+                <figcaption><b>Figure 11a:</b> Cross-algorithm robustness (PPO, SAC, A2PSAC, SCPO, ERPO) on Clair de Lune under Gaussian action perturbations.</figcaption>
+              </figure>
+              <figure class="figure zoomable">
+                <img src="assets/res-robust-reward.jpg" alt="Cross-algorithm robustness under Gaussian reward perturbations on Clair de Lune" loading="lazy" width="2200" height="868" />
+                <figcaption><b>Figure 11b:</b> The same comparison under Gaussian reward perturbations.</figcaption>
+              </figure>
+              <figure class="figure zoomable">
+                <img src="assets/res-robust-compose.jpg" alt="Composed Gaussian perturbations on Für Elise with three hands" loading="lazy" width="2200" height="824" />
+                <figcaption><b>Figure 12:</b> Progressively composing observation, reward, action, gravity, and hand-pose perturbations on three-hand Für Elise.</figcaption>
+              </figure>
+            </details>
+          </div>
+        </article>
+
+        <!-- ---- 03 Safe ---- -->
+        <article class="track t-safe" id="track-safe" aria-labelledby="safe-title">
+          <div class="wrap section">
+            <header class="track-head">
+              <span class="track-num">03</span>
+              <div>
+                <h2 id="safe-title">Safe RL</h2>
+                <p>Accurate playing is not the same as safe playing.</p>
+              </div>
+            </header>
+            <figure class="figure zoomable">
+              <img src="assets/design-safe.jpg" alt="Safe RL design: four safety semantics combined with three cost settings" loading="lazy" width="1652" height="894" />
+              <figcaption><b>Figure 3:</b> Four safety semantics specify the constrained behaviors, while Event, Fraction, and Excess provide alternative ways to quantify violations.</figcaption>
+            </figure>
+            <div class="cards two">
+              <div class="card">
+                <h3>Safety semantics</h3>
+                <ul>
+                  <li><b>Joint Range</b>: keep selected joints within prescribed intervals</li>
+                  <li><b>Actuator Power</b>: limit instantaneous mechanical power</li>
+                  <li><b>Injured Finger</b>: extra limits on a designated finger</li>
+                  <li><b>Hand Collision</b>: limit contact forces between hands</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3>Cost settings</h3>
+                <ul>
+                  <li><b>Event</b>: does a violation occur at this step?</li>
+                  <li><b>Fraction</b>: share of monitored elements over their limits</li>
+                  <li><b>Excess</b>: normalized deviation beyond the threshold</li>
+                </ul>
+                <p class="card-note">Reward and cost stay separate. Low cost achieved by simply not playing counts as a <em>trivial-safe failure</em>.</p>
+              </div>
+            </div>
+
+            <h3 class="results-title">Results</h3>
+            <figure class="figure zoomable">
+              <img src="assets/res-safe-a.jpg" alt="Episode cost and evaluation reward on three-hand Pictures at an Exhibition with power-excess cost" loading="lazy" width="2200" height="996" />
+              <figcaption><b>Figure 8a:</b> Three hands, Pictures at an Exhibition (Great Kiev), actuator-power excess cost. PPO, PPO-Lag, OnCRPO, CPO, and CUP; 5M steps, three seeds.</figcaption>
+            </figure>
+            <p class="takeaway"><b>Takeaway.</b> Unconstrained PPO earns the highest return, but its cost stays orders of magnitude above the budget. Constrained methods bring cost down toward the budget at the price of lower return, which makes the safety–performance trade-off explicit.</p>
+            <details class="more">
+              <summary>More results: a second piece</summary>
+              <figure class="figure zoomable">
+                <img src="assets/res-safe-b.jpg" alt="Episode cost and evaluation reward on three-hand Polonaise Op. 40 No. 1 with power-excess cost" loading="lazy" width="2200" height="996" />
+                <figcaption><b>Figure 8b:</b> Three hands, Polonaise Op. 40 No. 1, actuator-power excess cost.</figcaption>
+              </figure>
+            </details>
+          </div>
+        </article>
+
+        <!-- ---- 04 MARL ---- -->
+        <article class="track t-marl" id="track-marl" aria-labelledby="marl-title">
+          <div class="wrap section">
+            <header class="track-head">
+              <span class="track-num">04</span>
+              <div>
+                <h2 id="marl-title">Multi-Agent RL</h2>
+                <p>Split the hands across decentralized agents that share one musical goal.</p>
+              </div>
+            </header>
+            <figure class="figure zoomable">
+              <img src="assets/design-marl.jpg" alt="Multi-agent RL design: base configuration and four SCHO variants" loading="lazy" width="1920" height="860" />
+              <figcaption><b>Figure 4:</b> A typical four-hand example. Users can freely configure the MIDI score, number of hands and agents, hand-to-agent assignments, and each agent's observation and action ranges.</figcaption>
+            </figure>
+            <div class="cards four">
+              <div class="card"><h3><span class="letter">S</span>calability</h3><p>How many agents control the same set of hands.</p></div>
+              <div class="card"><h3><span class="letter">C</span>oupling</h3><p>How much agents' keyboard action ranges overlap.</p></div>
+              <div class="card"><h3><span class="letter">H</span>eterogeneity</h3><p>Balanced vs. imbalanced hand assignments.</p></div>
+              <div class="card"><h3><span class="letter">O</span>bservability</h3><p>How much of the keyboard and teammates each agent sees.</p></div>
+            </div>
+
+            <h3 class="results-title">Results</h3>
+            <figure class="figure zoomable">
+              <img src="assets/res-marl.jpg" alt="Team return of IPPO, MAPPO, HAPPO, A2PO and FACMAC across five cooperation settings" loading="lazy" width="2200" height="1315" />
+              <figcaption><b>Figure 9:</b> Task-wise training return of IPPO, MAPPO, HAPPO, A2PO, and FACMAC on four-hand Winter Wind across the Base task and four SCHO variants, with centralized PPO as a reference.</figcaption>
+            </figure>
+            <p class="takeaway"><b>Takeaway.</b> Scalability (one agent per hand) reaches the highest or near-highest return for every algorithm, while Coupling hurts most, with FACMAC the exception. Centralized PPO falls far behind, and IPPO remains a surprisingly strong baseline.</p>
+            <details class="more">
+              <summary>More results: team return and musical F1 per task</summary>
+              <figure class="figure zoomable">
+                <img src="assets/res-marl-detail.jpg" alt="Detailed MARL results: team return and musical F1 per algorithm and task" loading="lazy" width="2200" height="1458" />
+                <figcaption><b>Figure 20:</b> Detailed MARL results. The first row compares task-wise team return per algorithm; the second and third rows compare team return and musical F1 across algorithms for each task.</figcaption>
+              </figure>
+            </details>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ FINDINGS ============ -->
+      <section class="band" id="findings" aria-labelledby="findings-title">
+        <div class="wrap section">
+          <p class="eyebrow">Cross-benchmark insights</p>
+          <h2 id="findings-title" class="section-title">Five findings</h2>
+          <div class="findings">
+            <article class="finding">
+              <span class="finding-num">1</span>
+              <h3>Song duration alone does not explain difficulty</h3>
+              <p>Longer songs are not necessarily harder. Note density (NPS) is a better indicator, and fingering complexity, hand coordination, and key transitions matter too.</p>
+            </article>
+            <article class="finding">
+              <span class="finding-num">2</span>
+              <h3>More agents help when they reduce per-agent burden</h3>
+              <p>Giving each agent a single hand achieves the highest or near-highest return: the lighter control load outweighs the extra coordination.</p>
+            </article>
+            <article class="finding">
+              <span class="finding-num">3</span>
+              <h3>More hands do not guarantee better performance</h3>
+              <p>Extra hands add control capacity but make learning harder. Scalability should reflect how well an algorithm exploits them.</p>
+            </article>
+            <article class="finding">
+              <span class="finding-num">4</span>
+              <h3>Action and hand-position noise are most disruptive</h3>
+              <p>They cause the largest drops, making actuation and hand initialization the key robustness challenges in dexterous piano playing.</p>
+            </article>
+            <article class="finding">
+              <span class="finding-num">5</span>
+              <h3>Restricting mobility can simplify learning</h3>
+              <p>Confining each hand to a region beats unrestricted motion despite a smaller reachable space: more freedom also means harder exploration.</p>
+            </article>
+            <article class="finding finding-summary">
+              <h3>Taken together</h3>
+              <p>Evaluating dexterous control needs more than one task or configuration. Hand count, morphology, perturbation type, musical piece, and restriction setting each expose different capabilities and limits of current methods.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ VIDEOS ============ -->
+      <section class="wrap section" id="videos" aria-labelledby="videos-title">
+        <p class="eyebrow">Rollouts</p>
+        <h2 id="videos-title" class="section-title">Videos</h2>
+        <div class="filters" aria-label="Filter videos by track">
+          <button class="chip is-active" data-filter="all" type="button" aria-pressed="true">All</button>
+          <button class="chip f-std" data-filter="std" type="button" aria-pressed="false">Standard</button>
+          <button class="chip f-rob" data-filter="rob" type="button" aria-pressed="false">Robust</button>
+          <button class="chip f-safe" data-filter="safe" type="button" aria-pressed="false">Safe</button>
+          <button class="chip f-marl" data-filter="marl" type="button" aria-pressed="false">Multi-Agent</button>
+        </div>
+        <!--
+          To add a video, replace a slot's <div class="video-placeholder">…</div> with:
+          <video src="assets/videos/NAME.mp4" poster="assets/videos/NAME.jpg" autoplay muted loop playsinline></video>
+        -->
+        <div class="video-grid">
+          <figure class="video-card" data-track="std">
+            <div class="video-frame"><img src="assets/five-hand-demo.gif" alt="Five Shadow Hands playing piano in the restricted setting" loading="lazy" /></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>Five hands, restricted</strong><span>Each hand confined to its own keyboard region</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="std">
+            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>One to five hands</strong><span>Scaling the embodiment on the same piece</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="std">
+            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>RL vs. LLM agent</strong><span>An RL policy compared with an LLM-based agent</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="rob">
+            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <figcaption><span class="tag t-rob">Robust</span><strong>Action noise</strong><span>Clean vs. perturbed actuation</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="rob">
+            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <figcaption><span class="tag t-rob">Robust</span><strong>Physical perturbations</strong><span>Gravity, contact friction, and initial hand pose</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="safe">
+            <div class="video-frame"><img src="assets/collision-demo.gif" alt="Hand-collision safety task rollout" loading="lazy" /></div>
+            <figcaption><span class="tag t-safe">Safe</span><strong>Hand collision</strong><span>Limiting contact between neighboring hands</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="safe">
+            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <figcaption><span class="tag t-safe">Safe</span><strong>Unconstrained vs. constrained</strong><span>PPO vs. a safe RL policy under a power budget</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="marl">
+            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <figcaption><span class="tag t-marl">Multi-Agent</span><strong>Two agents, four hands</strong><span>Base cooperation setting</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="marl">
+            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <figcaption><span class="tag t-marl">Multi-Agent</span><strong>Four agents, one hand each</strong><span>Scalability setting</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ CITATION ============ -->
+      <section class="band" id="citation" aria-labelledby="cite-title">
+        <div class="wrap narrow section">
+          <h2 id="cite-title" class="section-title">BibTeX</h2>
+          <div class="bibtex">
+            <button class="copy" type="button" data-copy="#bibtex-text">Copy</button>
+<pre id="bibtex-text">@misc{omnipiano2026,
+  title  = {OmniPiano: Diverse Dexterous Piano-Playing Challenges
+            for Standard, Robust, Safe, and Multi-Agent RL},
+  author = {Anonymous},
+  note   = {Under double-blind review},
+  year   = {2026}
+}</pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <span>OmniPiano · Anonymous submission</span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-close" type="button" aria-label="Close">×</button>
+      <img alt="" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
