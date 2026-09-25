@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260925c" />
   </head>
   <body>
     <nav class="topnav" aria-label="Page sections">
@@ -22,7 +22,7 @@
           <a href="#leaderboard">Leaderboard</a>
           <a href="#findings">Findings</a>
           <a href="#videos">Videos</a>
-          <a href="#citation">BibTeX</a>
+          <a href="#dataset">Dataset</a>
         </div>
       </div>
     </nav>
@@ -47,9 +47,9 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 21.5A2.5 2.5 0 0 1 6.5 19H20v3H6.5A2.5 2.5 0 0 1 4 21.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
           Tutorial
         </a>
-        <a class="btn" href="#citation">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v6H5v-2a4 4 0 0 1 2-4Zm8 0h4v6h-6v-2a4 4 0 0 1 2-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-          BibTeX
+        <a class="btn" href="#dataset">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          Dataset
         </a>
       </div>
     </header>
@@ -75,6 +75,13 @@
 
       <!-- ============ ABSTRACT ============ -->
       <section class="wrap narrow section" id="abstract" aria-labelledby="abstract-title">
+        <figure class="abstract-media">
+          <div class="featured-frame is-muted">
+            <video id="featured-video" src="assets/videos/featured-furelise-2hand.mp4" poster="assets/videos/featured-furelise-2hand.jpg" aria-label="Two Shadow Hands playing Für Elise" loop playsinline preload="auto"></video>
+            <button class="sound-toggle" type="button" aria-label="Unmute video"><svg class="i-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="m16 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><svg class="i-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
+          </div>
+          <figcaption><span class="tag t-std">Standard</span><span>Two Shadow Hands playing <i>Für Elise</i>.</span></figcaption>
+        </figure>
         <h2 id="abstract-title" class="section-title">Abstract</h2>
         <p class="abstract">Dexterous robotic manipulation remains a major challenge in robotics, exemplified by piano playing, which requires coordinated control of fingers and arms and provides a demanding testbed for reinforcement learning (RL). Although RoboPianist established a benchmark for robotic piano playing, it is restricted to two hands and does not support unified evaluation. To address this gap, we introduce <b>OmniPiano</b>, a benchmark that extends RoboPianist from one to up to five Shadow Hands and supports standard, robust, safe, and multi-agent RL within a shared piano-playing task family. OmniPiano is developed for scalable and diverse piano-playing tasks with configurable perturbations, explicit safety constraints, and decentralized cooperation settings. With at least 912 task settings and 50 baseline algorithms, OmniPiano also incorporates LLM-based agents to broaden the evaluation scope and reveal new empirical insights. Particularly, to facilitate usability and extendability, OmniPiano adopts a highly modular design and provides comprehensive tasks to support RL study of task performance, robustness, safety, and cooperation in dexterous control.</p>
       </section>
@@ -109,9 +116,9 @@
 
       <!-- ============ COMPARISON ============ -->
       <section class="wrap section" aria-labelledby="compare-title">
-        <p class="eyebrow">One core task, four tracks</p>
-        <h2 id="compare-title" class="section-title">Vary one factor at a time</h2>
-        <p class="lead">Rather than combining every factor in a single environment, OmniPiano keeps the core piano-playing task fixed and varies one aspect per track, so performance differences can be attributed to a single design choice. All tracks are exposed through consistent <b>Gymnasium</b> (single-agent) and <b>PettingZoo</b> (multi-agent) interfaces in MuJoCo, and work with Stable-Baselines3, RLlib, and TorchRL.</p>
+        <p class="eyebrow">Related benchmarks</p>
+        <h2 id="compare-title" class="section-title">How OmniPiano compares</h2>
+        <p class="lead">OmniPiano keeps the high-dimensional dexterous piano playing of RoboPianist and adds robust, safe, and multi-agent RL tracks on a single unified task setting, together with LLM-agent evaluation.</p>
         <div class="table-wrap">
           <table class="compare">
             <caption>Comparison of OmniPiano with related reinforcement-learning benchmarks.</caption>
@@ -120,7 +127,6 @@
             </thead>
             <tbody>
               <tr><th scope="row">Action dimension</th><td>45</td><td>1–30</td><td>2–17</td><td class="ours">23–111</td></tr>
-              <tr><th scope="row">Episode horizon</th><td>240–3710</td><td>50–1600</td><td>500–1000</td><td class="ours">240–3710</td></tr>
               <tr><th scope="row">Dexterous piano playing</th><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="ours y">✓</td></tr>
               <tr><th scope="row">Robust RL track</th><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="ours y">✓</td></tr>
               <tr><th scope="row">Safe RL track</th><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="ours y">✓</td></tr>
@@ -133,8 +139,11 @@
       </section>
 
       <!-- ============ TRACKS ============ -->
-      <section id="tracks" class="tracks" aria-label="Benchmark tracks">
+      <section id="tracks" class="tracks" aria-labelledby="tracks-title">
         <div class="wrap">
+          <p class="eyebrow">One core task, four tracks</p>
+          <h2 id="tracks-title" class="section-title">Vary one factor at a time</h2>
+          <p class="lead">Rather than combining every factor in a single environment, OmniPiano keeps the core piano-playing task fixed and varies one aspect per track, so performance differences can be attributed to a single design choice. All tracks are exposed through consistent <b>Gymnasium</b> (single-agent) and <b>PettingZoo</b> (multi-agent) interfaces in MuJoCo, and work with Stable-Baselines3, RLlib, and TorchRL.</p>
           <div class="track-index">
             <a href="#track-standard" class="ti t-std"><span>01</span>Standard RL<em>72 tasks · 5 methods + 4 LLM agents</em></a>
             <a href="#track-robust" class="ti t-rob"><span>02</span>Robust RL<em>216 tasks · 5 methods</em></a>
@@ -251,12 +260,12 @@
               <p class="leaderboard-note"><b>Evaluation budget.</b> LLM agents are evaluated over 10 keyframe-optimization attempts, while RL methods are trained for 5M environment steps. Token counts apply only to LLM methods. GPT-6 Astra and Claude Opus 5 each lack one recorded Twinkle attempt; their token averages use the nine available attempts for that song.</p>
             </section>
             <figure class="figure zoomable">
-              <img src="assets/res-standard-f1.jpg" alt="Radar charts of F1 score for PPO, SAC, DeepSeek-V4.1-Flash and GPT-6 Astra across eight hand settings on three songs" loading="lazy" width="2200" height="970" />
-              <figcaption><b>Figure 5:</b> F1-score comparison of PPO, SAC, DeepSeek-V4.1-Flash, and GPT-6 Astra across eight hand settings (U = unrestricted, R = restricted) on three piano pieces of increasing difficulty.</figcaption>
+              <img src="assets/res-standard-reward-tokens.jpg" alt="Bar charts of average evaluation reward and mean token usage per optimization attempt for LLM agents and RL methods on three piano pieces" loading="lazy" width="2200" height="1325" />
+              <figcaption><b>Figure 5:</b> Average evaluation reward (↑: top row, higher is better) and mean token usage per optimization attempt (↓: bottom row, lower is better) for LLMs across ten keyframe-optimization iterations and RL methods over 5M training steps in the two-hand setting on three piano pieces.</figcaption>
             </figure>
             <figure class="figure zoomable">
-              <img src="assets/res-standard-llm.jpg" alt="F1 of LLM agents over ten optimization attempts compared with RL methods over 5M steps" loading="lazy" width="2200" height="777" />
-              <figcaption><b>Figure 6:</b> F1 of LLM agents over ten keyframe-optimization iterations, and of RL methods over 5M steps, for the two-hand setting on three pieces.</figcaption>
+              <img src="assets/res-standard-f1.jpg" alt="Radar charts of F1 score for PPO, SAC, DeepSeek-V4.1-Flash and GPT-6 Astra across eight hand settings on three songs" loading="lazy" width="2200" height="970" />
+              <figcaption><b>Figure 6:</b> F1-score comparison of PPO, SAC, DeepSeek-V4.1-Flash, and GPT-6 Astra across eight hand settings (U = unrestricted, R = restricted) on three piano pieces of increasing difficulty.</figcaption>
             </figure>
             <p class="takeaway"><b>Takeaway.</b> RL methods improve F1 more steadily, while LLM-based agents show less consistent gains across attempts, but can outperform some RL baselines on certain pieces, especially with more hands. Restricting hand mobility makes learning easier.</p>
             <details class="more">
@@ -308,15 +317,15 @@
               <summary>More results: robust RL algorithms and composed perturbations</summary>
               <figure class="figure zoomable">
                 <img src="assets/res-robust-action.jpg" alt="Cross-algorithm robustness under Gaussian action perturbations on Clair de Lune" loading="lazy" width="2200" height="868" />
-                <figcaption><b>Figure 11a:</b> Cross-algorithm robustness (PPO, SAC, A2PSAC, SCPO, ERPO) on Clair de Lune under Gaussian action perturbations.</figcaption>
+                <figcaption><b>Figure 12a:</b> Cross-algorithm robustness (PPO, SAC, A2PSAC, SCPO, ERPO) on Clair de Lune under Gaussian action perturbations.</figcaption>
               </figure>
               <figure class="figure zoomable">
                 <img src="assets/res-robust-reward.jpg" alt="Cross-algorithm robustness under Gaussian reward perturbations on Clair de Lune" loading="lazy" width="2200" height="868" />
-                <figcaption><b>Figure 11b:</b> The same comparison under Gaussian reward perturbations.</figcaption>
+                <figcaption><b>Figure 12b:</b> The same comparison under Gaussian reward perturbations.</figcaption>
               </figure>
               <figure class="figure zoomable">
                 <img src="assets/res-robust-compose.jpg" alt="Composed Gaussian perturbations on Für Elise with three hands" loading="lazy" width="2200" height="824" />
-                <figcaption><b>Figure 12:</b> Progressively composing observation, reward, action, gravity, and hand-pose perturbations on three-hand Für Elise.</figcaption>
+                <figcaption><b>Figure 13:</b> Progressively composing observation, reward, action, gravity, and hand-pose perturbations on three-hand Für Elise.</figcaption>
               </figure>
             </details>
           </div>
@@ -404,7 +413,7 @@
               <summary>More results: team return and musical F1 per task</summary>
               <figure class="figure zoomable">
                 <img src="assets/res-marl-detail.jpg" alt="Detailed MARL results: team return and musical F1 per algorithm and task" loading="lazy" width="2200" height="1458" />
-                <figcaption><b>Figure 20:</b> Detailed MARL results. The first row compares task-wise team return per algorithm; the second and third rows compare team return and musical F1 across algorithms for each task.</figcaption>
+                <figcaption><b>Figure 21:</b> Detailed MARL results. The first row compares task-wise team return per algorithm; the second and third rows compare team return and musical F1 across algorithms for each task.</figcaption>
               </figure>
             </details>
           </div>
@@ -467,12 +476,24 @@
         -->
         <div class="video-grid">
           <figure class="video-card" data-track="std">
-            <div class="video-frame"><img src="assets/five-hand-demo.gif" alt="Five Shadow Hands playing piano in the restricted setting" loading="lazy" /></div>
-            <figcaption><span class="tag t-std">Standard</span><strong>Five hands, restricted</strong><span>Each hand confined to its own keyboard region</span></figcaption>
+            <div class="video-frame"><video src="assets/videos/std-sac-furelise-1hand.mp4" poster="assets/videos/std-sac-furelise-1hand.jpg" aria-label="One unrestricted Shadow Hand playing Für Elise" autoplay muted loop playsinline controls preload="metadata"></video></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>One hand, unrestricted</strong><span><i>Für Elise</i></span></figcaption>
           </figure>
           <figure class="video-card" data-track="std">
-            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
-            <figcaption><span class="tag t-std">Standard</span><strong>One to five hands</strong><span>Scaling the embodiment on the same piece</span></figcaption>
+            <div class="video-frame"><video src="assets/videos/std-sac-furelise-2hand.mp4" poster="assets/videos/std-sac-furelise-2hand.jpg" aria-label="Two unrestricted Shadow Hands playing Für Elise" autoplay muted loop playsinline controls preload="metadata"></video></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>Two hands, unrestricted</strong><span><i>Für Elise</i></span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="std">
+            <div class="video-frame"><video src="assets/videos/std-sac-greatkiev-3hand.mp4" poster="assets/videos/std-sac-greatkiev-3hand.jpg" aria-label="Three restricted Shadow Hands playing The Great Gate of Kiev" autoplay muted loop playsinline controls preload="metadata"></video></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>Three hands, restricted</strong><span><i>Pictures at an Exhibition</i> (Great Kiev)</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="std">
+            <div class="video-frame"><video src="assets/videos/std-sac-winterwind-4hand.mp4" poster="assets/videos/std-sac-winterwind-4hand.jpg" aria-label="Four restricted Shadow Hands playing Winter Wind" autoplay muted loop playsinline controls preload="metadata"></video></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>Four hands, restricted</strong><span><i>Winter Wind</i></span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="std">
+            <div class="video-frame"><img src="assets/five-hand-demo.gif" alt="Five Shadow Hands playing piano in the restricted setting" loading="lazy" /></div>
+            <figcaption><span class="tag t-std">Standard</span><strong>Five hands, restricted</strong><span>Each hand confined to its own keyboard region</span></figcaption>
           </figure>
           <figure class="video-card" data-track="std">
             <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
@@ -495,30 +516,45 @@
             <figcaption><span class="tag t-safe">Safe</span><strong>Unconstrained vs. constrained</strong><span>PPO vs. a safe RL policy under a power budget</span></figcaption>
           </figure>
           <figure class="video-card" data-track="marl">
-            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <div class="video-frame"><video src="assets/videos/marl-two-agents-four-hands.mp4" poster="assets/videos/marl-two-agents-four-hands.jpg" aria-label="Two agents cooperating to play piano with four Shadow Hands" autoplay muted loop playsinline controls preload="metadata"></video></div>
             <figcaption><span class="tag t-marl">Multi-Agent</span><strong>Two agents, four hands</strong><span>Base cooperation setting</span></figcaption>
           </figure>
           <figure class="video-card" data-track="marl">
-            <div class="video-frame"><div class="video-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Video coming soon</div></div>
+            <div class="video-frame"><video src="assets/videos/marl-heterogeneity.mp4" poster="assets/videos/marl-heterogeneity.jpg" aria-label="Two agents with imbalanced control: one controls one Shadow Hand, the other controls three" autoplay muted loop playsinline controls preload="metadata"></video></div>
+            <figcaption><span class="tag t-marl">Multi-Agent</span><strong>One hand vs. three hands</strong><span>Heterogeneity setting: one agent controls 1 hand (22 actions), the other 3 hands (66 actions)</span></figcaption>
+          </figure>
+          <figure class="video-card" data-track="marl">
+            <div class="video-frame"><video src="assets/videos/marl-four-agents-one-hand.mp4" poster="assets/videos/marl-four-agents-one-hand.jpg" aria-label="Four agents each controlling one Shadow Hand to play piano" autoplay muted loop playsinline controls preload="metadata"></video></div>
             <figcaption><span class="tag t-marl">Multi-Agent</span><strong>Four agents, one hand each</strong><span>Scalability setting</span></figcaption>
           </figure>
         </div>
       </section>
-
-      <!-- ============ CITATION ============ -->
-      <section class="band" id="citation" aria-labelledby="cite-title">
-        <div class="wrap narrow section">
-          <h2 id="cite-title" class="section-title">BibTeX</h2>
-          <div class="bibtex">
-            <button class="copy" type="button" data-copy="#bibtex-text">Copy</button>
-<pre id="bibtex-text">@misc{omnipiano2026,
-  title  = {OmniPiano: Diverse Dexterous Piano-Playing Challenges
-            for Standard, Robust, Safe, and Multi-Agent RL},
-  author = {Anonymous},
-  note   = {Under double-blind review},
-  year   = {2026}
-}</pre>
-          </div>
+      <!-- ============ DATASET ============ -->
+      <section class="band" id="dataset" aria-labelledby="dataset-title">
+        <div class="wrap section">
+          <p class="eyebrow">Data</p>
+          <h2 id="dataset-title" class="section-title">MIDI Dataset</h2>
+          <p class="lead">OmniPiano uses the <a href="https://beam.kisarazu.ac.jp/research/PianoFingeringDataset/" target="_blank" rel="noreferrer">Piano Fingering (PIG) dataset</a>. Due to licensing restrictions, PIG cannot be redistributed on GitHub, so download and preprocess it locally. The steps are identical to RoboPianist's.</p>
+          <ol class="dataset-steps">
+            <li class="dataset-step">
+              <h3>Download</h3>
+              <p><a href="https://beam.kisarazu.ac.jp/research/PianoFingeringDataset/register.php" target="_blank" rel="noreferrer">Register for a free account</a> on the <a href="https://beam.kisarazu.ac.jp/research/PianoFingeringDataset/" target="_blank" rel="noreferrer">PIG website</a> and download <code>PianoFingeringDataset_v1.2.zip</code>.</p>
+            </li>
+            <li class="dataset-step">
+              <h3>Extract</h3>
+              <p>Unzip the archive and keep the <code>PianoFingeringDataset_v1.2</code> folder; its path is used in the next step.</p>
+            </li>
+            <li class="dataset-step">
+              <h3>Preprocess</h3>
+              <p>Convert the dataset into the format OmniPiano loads. This creates a <code>pig_single_finger</code> directory.</p>
+              <div class="codeblock"><pre id="cmd-preprocess">robopianist preprocess --dataset-dir /PATH/TO/PianoFingeringDataset_v1.2</pre><button class="copy" type="button" data-copy="#cmd-preprocess" aria-label="Copy command" title="Copy"><svg class="i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><svg class="i-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+            </li>
+            <li class="dataset-step">
+              <h3>Verify</h3>
+              <p>Check that preprocessing succeeded. It should print &ldquo;PIG dataset is ready to use!&rdquo;</p>
+              <div class="codeblock"><pre id="cmd-check">robopianist --check-pig-exists</pre><button class="copy" type="button" data-copy="#cmd-check" aria-label="Copy command" title="Copy"><svg class="i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><svg class="i-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+            </li>
+          </ol>
         </div>
       </section>
     </main>
@@ -535,6 +571,6 @@
       <img alt="" />
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260925c"></script>
   </body>
 </html>
