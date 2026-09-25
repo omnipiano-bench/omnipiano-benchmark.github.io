@@ -128,19 +128,34 @@ document.querySelectorAll('[data-copy]').forEach((btn) => btn.addEventListener('
 }));
 
 // Featured video: play with sound. Browsers block unmuted autoplay until the
-// visitor interacts, so fall back to muted playback and unmute on first input.
+// visitor interacts, so fall back to muted playback; clicking the video toggles
+// sound, and the first click anywhere else on the page also unmutes it.
 const featured = document.getElementById('featured-video');
 if (featured) {
+  const frame = featured.closest('.featured-frame');
+  const toggle = frame.querySelector('.sound-toggle');
+  const events = ['pointerdown', 'keydown', 'touchstart'];
+  const sync = () => {
+    frame.classList.toggle('is-muted', featured.muted);
+    toggle.setAttribute('aria-label', featured.muted ? 'Unmute video' : 'Mute video');
+  };
+  const setMuted = (muted) => {
+    featured.muted = muted;
+    if (featured.paused) featured.play().catch(() => {});
+    sync();
+  };
+  const stopAutoUnmute = () => events.forEach((e) => document.removeEventListener(e, autoUnmute, true));
+  function autoUnmute(e) {
+    if (frame.contains(e.target)) return;
+    stopAutoUnmute();
+    setMuted(false);
+  }
+  frame.addEventListener('click', () => { stopAutoUnmute(); setMuted(!featured.muted); });
   featured.muted = false;
-  featured.play().catch(() => {
+  featured.play().then(sync).catch(() => {
     featured.muted = true;
     featured.play().catch(() => {});
-    const events = ['pointerdown', 'keydown', 'touchstart'];
-    const unmute = () => {
-      events.forEach((e) => document.removeEventListener(e, unmute, true));
-      featured.muted = false;
-      if (featured.paused) featured.play().catch(() => {});
-    };
-    events.forEach((e) => document.addEventListener(e, unmute, true));
+    sync();
+    events.forEach((e) => document.addEventListener(e, autoUnmute, true));
   });
 }
