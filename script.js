@@ -90,7 +90,7 @@ if (leaderboardSong) {
       const active = button.dataset.sort === sortKey;
       button.classList.toggle('is-active', active);
       button.parentElement.setAttribute('aria-sort', active ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none');
-      button.querySelector('span').textContent = active ? (sortDirection === 'asc' ? '↑' : '↓') : '↕';
+      button.querySelector('span').textContent = active ? (sortDirection === 'asc' ? '↑' : '↓') : '';
     });
     filterLeaderboard();
   };
