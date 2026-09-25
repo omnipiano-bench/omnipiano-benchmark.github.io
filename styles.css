@@ -230,6 +230,8 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .chip.f-safe.is-active { background: var(--safe); border-color: var(--safe); }
 .chip.f-marl.is-active { background: var(--marl); border-color: var(--marl); }
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+/* Start each track on a new row, leaving any gap at the end of the previous one. */
+.video-card[data-track="std"] + .video-card:not([data-track="std"]), .video-card[data-track="rob"] + .video-card:not([data-track="rob"]), .video-card[data-track="safe"] + .video-card:not([data-track="safe"]) { grid-column-start: 1; }
 .video-card { margin: 0; }
 .video-card[hidden] { display: none; }
 .video-frame { aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #0d1424; }
