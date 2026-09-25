@@ -53,8 +53,7 @@ b, strong { color: var(--ink); font-weight: 600; }
 .project-logo { width: clamp(240px, 36vw, 380px); margin: 0 auto 30px; }
 h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.18; letter-spacing: -.015em; }
 .c-std { color: var(--std); } .c-rob { color: var(--rob); } .c-safe { color: var(--safe); } .c-marl { color: var(--marl); }
-.authors { margin-bottom: 2px; color: var(--ink); font-size: 1.25rem; font-weight: 600; }
-.affiliation { margin-bottom: 28px; color: var(--muted); font-size: 1.125rem; }
+.authors { margin-bottom: 28px; color: var(--ink); font-size: 1.25rem; font-weight: 600; }
 .hero-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 1rem; font-weight: 500; transition: transform .15s, background .15s; }
 .btn:hover { background: var(--blue-deep); text-decoration: none; transform: translateY(-1px); }
