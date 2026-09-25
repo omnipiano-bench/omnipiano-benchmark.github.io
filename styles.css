@@ -84,8 +84,8 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .narrow .section-title { text-align: center; }
 .lead { max-width: 820px; margin-bottom: 36px; font-size: 1.08rem; }
 .abstract { margin: 0; text-align: justify; hyphens: auto; }
-.abstract-media { width: min(100%, 720px); margin: 0 auto 64px; }
-.abstract-media video { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: var(--radius); border: 1px solid var(--line); background: #0d1424; box-shadow: var(--shadow); }
+.abstract-media { width: min(100%, 820px); margin: 0 auto 64px; }
+.abstract-media video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); border: 1px solid var(--line); background: #0d1424; box-shadow: var(--shadow); }
 .abstract-media figcaption { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin-top: 14px; color: var(--muted); font-size: .92rem; line-height: 1.5; text-align: center; }
 .abstract-media .tag { margin: 0; }
 
