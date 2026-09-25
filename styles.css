@@ -226,7 +226,7 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .video-card { margin: 0; }
 .video-card[hidden] { display: none; }
-.video-frame { aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: #0d1424; }
+.video-frame { aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #0d1424; }
 .video-frame img, .video-frame video { width: 100%; height: 100%; object-fit: cover; }
 .video-placeholder { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: #8a96ad; font-size: .88rem; background: repeating-linear-gradient(90deg, #111a2d 0 22px, #0d1424 22px 24px); }
 .video-placeholder svg { width: 44px; height: 44px; padding: 10px; border-radius: 50%; background: rgba(255, 255, 255, .08); color: #c5cedf; }
