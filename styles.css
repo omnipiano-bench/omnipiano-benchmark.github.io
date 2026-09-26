@@ -67,6 +67,9 @@ h1 { max-width: 980px; margin: 0 auto 24px; color: var(--ink); font-family: var(
 .figure img { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; }
 .figure figcaption { max-width: 900px; margin: 12px auto 0; color: var(--muted); font-size: .92rem; line-height: 1.55; text-align: center; }
 .figure figcaption b { color: var(--ink); }
+.arrow-up, .arrow-down { font-weight: 700; }
+.arrow-up { color: #2b2bff; }
+.arrow-down { color: #009000; }
 .zoomable img { cursor: zoom-in; }
 .teaser .figure img { padding: 14px; box-shadow: var(--shadow); }
 
