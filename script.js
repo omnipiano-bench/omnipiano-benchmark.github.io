@@ -56,11 +56,11 @@ const leaderboardTypes = [...document.querySelectorAll('.method-filters input')]
 const leaderboardEmpty = document.getElementById('leaderboard-empty');
 const leaderboardSortButtons = [...document.querySelectorAll('.sort-button')];
 if (leaderboardSong) {
-  let sortKey = 'f1';
+  let sortKey = 'avg-reward';
   let sortDirection = 'desc';
   const sortValue = (row, key) => {
     if (key === 'type') return row.dataset.type;
-    const cell = row.querySelectorAll('td')[{ f1: 2, reward: 3, 'avg-reward': 4, tokens: 5 }[key]].textContent.trim();
+    const cell = row.querySelectorAll('td')[{ 'avg-reward': 2, tokens: 3 }[key]].textContent.trim();
     if (cell === '—') return null;
     const value = Number(cell.replaceAll(',', '').replace('K', ''));
     return cell.endsWith('K') ? value * 1000 : value;
